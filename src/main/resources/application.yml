@@ -7,6 +7,8 @@ spring:
     username: root
     password: 19930205Nginx*
     type: com.zaxxer.hikari.HikariDataSource
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 
