@@ -3,4 +3,5 @@ VOLUME /tmp
 ADD spring-boot-demo.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
-ENTRYPOINT [ "nohup", "java $JAVA_OPTS -jar /app.jar > /dev/null 2 >&1 &" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+EOF
