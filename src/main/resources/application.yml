@@ -11,6 +11,11 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    host: 111.231.82.81
+    port: 6379
+
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 eureka:
