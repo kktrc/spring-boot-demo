@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  application:
+    name: spring-boot-demo
   datasource:
     url: jdbc:mysql://sh-cdb-857jknxp.sql.tencentcdb.com:63232/kk_panda
     driver-class-name: com.mysql.jdbc.Driver
@@ -11,6 +13,22 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://111.231.82.81:7070/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
+
+
+
+
+
+
+
 
 
 
