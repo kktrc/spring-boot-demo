@@ -19,9 +19,9 @@
   </resultMap>
 
 
-  <insert id="saveUser" parameterType="com.panda.demo.dataobject.UserDO">
+  <insert id="saveUser" useGeneratedKeys="true" keyProperty="id" parameterType="com.panda.demo.dataobject.UserDO">
     insert into t_user (user_no, user_name, user_sex, nick_name, password, mobile, creator, add_time, modifier, update_time, is_deleted)
-    values (#{userNo}, #{userName}, #{userSex}, #{nickName}, #{password}, #{mobile}, #{creator}, #{addTime}, #{modifier}, #{updateTime}, #{isDeleted})
+    values (#{userNo}, #{userName}, #{userSex}, #{nickName}, #{password}, #{mobile}, #{creator}, now(), #{modifier}, now(), 0)
   </insert>
 
 
