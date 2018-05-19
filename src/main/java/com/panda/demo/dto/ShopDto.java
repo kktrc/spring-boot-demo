@@ -8,4 +8,10 @@ public class ShopDto {
     private Long id;
 
     private String name;
+
+    private String address;
+
+    private String mobile;
+
+    private String position;
 }

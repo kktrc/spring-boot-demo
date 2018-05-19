@@ -19,6 +19,9 @@ public class ShopController {
             ShopDto shop = new ShopDto();
             shop.setId(i + 0L);
             shop.setName("店" + i);
+            shop.setMobile("18204314866");
+            shop.setAddress("浦东新区浦东南路1101号远东大厦1112室");
+            shop.setPosition("[31.229023],[121.517227]");
             shopList.add(shop);
         }
         return shopList;
