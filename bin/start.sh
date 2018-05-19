@@ -1,10 +1,11 @@
+#!/usr/bin/env bash
+
 docker stop spring-boot-demo
 
 docker rm spring-boot-demo
 
 docker rmi panda/spring-boot-demo
-
-
+h
 cd ..
 
 mvn clean package -Dmaven.test.skip=true docker:build
