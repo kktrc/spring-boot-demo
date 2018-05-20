@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.panda.demo.mapper.MenuMapper" >
+
+
+  <resultMap id="BaseResultMap" type="com.panda.demo.dataobject.MenuDO">
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="INTEGER" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP"/>
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    <result column="is_deleted" property="isDeleted" jdbcType="INTEGER"/>
+  </resultMap>
+
+
+  <insert id="saveMenuDO" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.panda.demo.dataobject.MenuDO">
+    insert into t_menu(
+    <if test="parentId != null">
+      parent_id,
+    </if>
+    <if test="title != null and title != ''">
+      title,
+    </if>
+    <if test="remark != null and remark != ''">
+      remark,
+    </if>
+    <if test="link != null and link != ''">
+      link,
+    </if>
+    <if test="icon != null and icon != ''">
+      icon,
+    </if>
+    <if test="creator != null and icon != ''">
+      creator,
+    </if>
+    add_time,
+    <if test="modifier != null and modifier != ''">
+      modifier
+    </if>
+    ) values (
+    <if test="parentId != null">
+      #{parentId},
+    </if>
+    <if test="title != null and title != ''">
+      #{title},
+    </if>
+    <if test="remark != null and remark != ''">
+      #{remark},
+    </if>
+    <if test="link != null and link != ''">
+      #{link},
+    </if>
+    <if test="icon != null and icon != ''">
+      #{icon},
+    </if>
+    <if test="creator != null and icon != ''">
+      #{creator},
+    </if>
+    now(),
+    <if test="modifier != null and modifier != ''">
+      #{modifier}
+    </if>
+    )
+  </insert>
+
+
+  <select id="selectByQuery" parameterType="com.panda.demo.queryobject.MenuQuery"
+    resultMap="BaseResultMap">
+    select * from t_menu
+    where is_deleted = 0
+    <if test="parentId != null">
+      and parent_id = #{parentId}
+    </if>
+    <if test="title != null and title != ''">
+      and title = #{title}
+    </if>
+    <if test="remark != null and remark != ''">
+      and remark = #{remark}
+    </if>
+    <if test="link != null and link != ''">
+      and link = #{link}
+    </if>
+    <if test="icon != null and icon != ''">
+      and icon = #{icon}
+    </if>
+    <if test="creator != null and icon != ''">
+      and creator = #{creator}
+    </if>
+    <if test="addTime != null">
+      and add_time = #{addTime}
+    </if>
+    <if test="modifier != null and modifier != ''">
+      and modifier = #{modifier}
+    </if>
+    <if test="updateTime != null">
+      and update_time = #{updateTime}
+    </if>
+    <if test="sorted != null and sorted.size() > 0">
+      order by
+        <foreach collection="sorted" item="sort" separator=",">
+          ${sort}
+        </foreach>
+    </if>
+  </select>
+</mapper>
