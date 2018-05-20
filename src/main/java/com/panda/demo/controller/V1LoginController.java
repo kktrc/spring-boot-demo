@@ -57,6 +57,7 @@ public class V1LoginController {
 
         baseResult.setCode(200);
         baseResult.setMessage("登录成功");
+        baseResult.setResult(user.getToken());
         return baseResult;
     }
 }
