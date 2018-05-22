@@ -9,19 +9,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
-    @Override protected void addInterceptors(InterceptorRegistry registry) {
-        super.addInterceptors(registry);
-
-        registry.addInterceptor(loginInterceptor())
-            .addPathPatterns("/**")
-            .excludePathPatterns("/v1/login");
-    }
-
-
-
-    @Bean
-    public LoginInterceptor loginInterceptor() {
-
-        return new LoginInterceptor();
-    }
+    //@Override protected void addInterceptors(InterceptorRegistry registry) {
+    //    super.addInterceptors(registry);
+    //
+    //    registry.addInterceptor(loginInterceptor())
+    //        .addPathPatterns("/**")
+    //        .excludePathPatterns("/v1/login");
+    //}
+    //
+    //
+    //
+    //@Bean
+    //public LoginInterceptor loginInterceptor() {
+    //
+    //    return new LoginInterceptor();
+    //}
 }
